@@ -18,8 +18,7 @@ namespace
 {
 double readScalingFromSettings(std::shared_ptr<SettingsController> settingsController)
 {
-    return settingsController->read<double>(QStringLiteral("Application"),
-                                            QStringLiteral("scaling"), 1.);
+    return settingsController->read<double>(QStringLiteral("demo1"), QStringLiteral("scaling"), 1.);
 }
 
 IScalingController::ChangeScalingCallback
@@ -28,7 +27,7 @@ onScalingChangedCallback(std::shared_ptr<SettingsController> settingsController,
 {
     return [settingsController, displayWidget](double scalingFactor)
     {
-        settingsController->write(QStringLiteral("Application"), QStringLiteral("scaling"),
+        settingsController->write(QStringLiteral("demo1"), QStringLiteral("scaling"),
                                   scalingFactor);
 
         DialogManager::showInfoDialog(QStringLiteral("Apply scaling"),
@@ -40,8 +39,7 @@ onScalingChangedCallback(std::shared_ptr<SettingsController> settingsController,
 QFont readAppFontFromSettings(std::shared_ptr<SettingsController> settingsController)
 {
     const QFont defaultFont{ FontFactory::create(FontAssignment::Application) };
-    return settingsController->read(QStringLiteral("Application"), QStringLiteral("font"),
-                                    defaultFont);
+    return settingsController->read(QStringLiteral("demo1"), QStringLiteral("font"), defaultFont);
 }
 
 IFontController::ChangeFontCallback
@@ -50,7 +48,7 @@ onFontChangedCallback(std::shared_ptr<SettingsController> settingsController,
 {
     return [settingsController, displayWidget](QFont font)
     {
-        settingsController->write(QStringLiteral("Application"), QStringLiteral("font"), font);
+        settingsController->write(QStringLiteral("demo1"), QStringLiteral("font"), font);
 
         DialogManager::showInfoDialog(QStringLiteral("Apply font"),
                                       QStringLiteral("Restart the application to apply settings."),
