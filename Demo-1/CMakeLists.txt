@@ -14,8 +14,7 @@ set(PROJECT_SOURCES
         src/dock-widget/dockwidgetcontroller.cpp
 )
 
-qt_add_executable(${PROJECT_NAME}
-    MANUAL_FINALIZATION
+add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCES}
 )
 
