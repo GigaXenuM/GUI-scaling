@@ -12,3 +12,4 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 add_subdirectory(libs/common/)
 add_subdirectory(demo-1/)
+add_subdirectory(demo-2/)
